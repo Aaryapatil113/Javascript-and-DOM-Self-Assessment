@@ -4,7 +4,7 @@ A web app that displays 50 Airbnb listings from San Francisco using JavaScript, 
 
 ## 🔗 Github Repository
 
-**https://aaryapatil113.github.io/Javascript-and-DOM-Self-Assessment/**
+**https://github.com/Aaryapatil113/Javascript-and-DOM-Self-Assessment.git**
 
 ## 🔗 Website Url
 
