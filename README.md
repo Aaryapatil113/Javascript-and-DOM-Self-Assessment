@@ -33,6 +33,3 @@ Some listing images are unavailable due to outdated URLs - placeholder images ar
 
 I used Claude AI to assist with styling and JavaScript implementation.
 
-## Author
-
-Aarya Patil - Northeastern University
