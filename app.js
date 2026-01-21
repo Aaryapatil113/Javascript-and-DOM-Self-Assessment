@@ -21,7 +21,7 @@ async function loadListings() {
         showLoading(true);
         hideError();
 
-        // Fetch the JSON file - UPDATED TO CORRECT FILENAME
+        // Fetch the JSON file
         const response = await fetch('airbnb_sf_listings_500.json');
         
         if (!response.ok) {
