@@ -27,7 +27,4 @@ A web app that displays 50 Airbnb listings from San Francisco using JavaScript, 
 - Bootstrap 5
 - Fetch API
 
-## Notes
-
-Some listing images are unavailable due to outdated URLs - placeholder images are used instead.
 
