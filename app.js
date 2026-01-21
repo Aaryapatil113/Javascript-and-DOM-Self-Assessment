@@ -21,8 +21,8 @@ async function loadListings() {
         showLoading(true);
         hideError();
 
-        // Fetch the JSON file
-        const response = await fetch('listings.json');
+        // Fetch the JSON file - UPDATED TO CORRECT FILENAME
+        const response = await fetch('airbnb_sf_listings_500.json');
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -44,7 +44,7 @@ async function loadListings() {
         
     } catch (error) {
         console.error('Error loading listings:', error);
-        showError('Failed to load listings. Please make sure listings.json is in the same folder as index.html');
+        showError('Failed to load listings. Error: ' + error.message);
         showLoading(false);
     }
 }
@@ -78,7 +78,7 @@ function createListingCard(listing, index) {
     const col = document.createElement('div');
     col.className = 'col-md-6 col-lg-4';
     
-    // Extract data based on your JSON structure
+    // Extract data based on JSON structure
     const name = listing.name || 'Untitled Listing';
     const description = listing.description || 'No description available';
     const price = cleanPrice(listing.price);
@@ -148,7 +148,7 @@ function createListingCard(listing, index) {
 // HELPER FUNCTIONS
 // ============================================
 
-// Clean price string (removes $ and converts to number)
+// Clean price string
 function cleanPrice(priceString) {
     if (!priceString) return 0;
     const cleaned = priceString.replace(/[$,]/g, '');
@@ -161,10 +161,9 @@ function parseAmenities(amenitiesString) {
     if (!amenitiesString) return [];
     
     try {
-        // Remove brackets and split by comma
         const cleaned = amenitiesString
             .replace(/^\[|\]$/g, '')
-            .replace(/\\u[\dA-F]{4}/gi, '') // Remove unicode escapes
+            .replace(/\\u[\dA-F]{4}/gi, '')
             .split('", "')
             .map(item => item.replace(/^"|"$/g, '').trim());
         
@@ -181,7 +180,6 @@ function displayAmenities(amenities) {
         return '<span class="text-muted small">No amenities listed</span>';
     }
     
-    // Show first 5 amenities
     const displayedAmenities = amenities.slice(0, 5);
     const remaining = amenities.length - 5;
     
@@ -200,12 +198,10 @@ function displayAmenities(amenities) {
 function cleanDescription(description) {
     if (!description) return 'No description available';
     
-    // Remove HTML tags
     const cleaned = description.replace(/<[^>]*>/g, ' ')
                               .replace(/\s+/g, ' ')
                               .trim();
     
-    // Truncate to 150 characters
     return cleaned.length > 150 
         ? escapeHtml(cleaned.substring(0, 150)) + '...'
         : escapeHtml(cleaned);
@@ -222,17 +218,14 @@ function escapeHtml(text) {
 // STATS CALCULATION
 // ============================================
 function updateStats(listings) {
-    // Total listings
     document.getElementById('totalListings').textContent = listings.length;
     
-    // Average price
     const prices = listings.map(l => cleanPrice(l.price));
     const avgPrice = prices.length > 0 
         ? Math.round(prices.reduce((a, b) => a + b, 0) / prices.length)
         : 0;
     document.getElementById('avgPrice').textContent = `$${avgPrice}`;
     
-    // Unique hosts
     const uniqueHosts = new Set(
         listings.map(l => l.host_id).filter(id => id)
     );
@@ -317,29 +310,3 @@ function hideError() {
     const errorDiv = document.getElementById('errorMessage');
     errorDiv.classList.add('d-none');
 }
-```
-
----
-
-## **Key Changes Made:**
-
-✅ **Price handling**: Your JSON has `"price": "$187.00"` - added `cleanPrice()` function  
-✅ **Amenities parsing**: Your amenities are in a JSON string format - added `parseAmenities()`  
-✅ **Description cleaning**: Your descriptions have HTML tags - added `cleanDescription()`  
-✅ **Host data**: Uses `host_name` and `host_picture_url` (not nested)  
-✅ **Neighborhood**: Uses `neighbourhood_cleansed`  
-✅ **Rating**: Added review score display  
-✅ **Security**: Added `escapeHtml()` to prevent XSS attacks  
-
----
-
-## **Files You Need:**
-
-Your project should now have:
-```
-airbnb-listings/
-├── index.html (from Step 2)
-├── app.js (THIS UPDATED VERSION)
-├── style.css (from Step 3)
-├── listings.json (from professor's repo)
-└── README.md (from Step 5)
