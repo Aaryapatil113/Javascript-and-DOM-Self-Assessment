@@ -1,1 +1,86 @@
-hi
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb Listings</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .listing-card {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        .listing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .listing-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .host-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .price-tag {
+            background-color: #FF5A5F;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .amenities-list {
+            max-height: 100px;
+            overflow-y: auto;
+        }
+        #loading {
+            text-align: center;
+            padding: 50px;
+        }
+        .search-box {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Airbnb Listings Demo</span>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Search Feature (Creative Addition) -->
+        <div class="search-box">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search listings by name or description...">
+        </div>
+
+        <!-- Sort Feature (Creative Addition) -->
+        <div class="mb-3">
+            <button class="btn btn-primary" onclick="sortByPrice('asc')">Sort by Price (Low to High)</button>
+            <button class="btn btn-primary" onclick="sortByPrice('desc')">Sort by Price (High to Low)</button>
+            <button class="btn btn-secondary" onclick="loadListings()">Reset</button>
+        </div>
+
+        <div id="loading">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
+        <div id="listingsContainer" class="row"></div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="app.js"></script>
+</body>
+</html>
