@@ -23,7 +23,7 @@ async function loadListings() {
 
         // Fetch the JSON file
         // IMPORTANT: Change 'listings.json' to match your actual file name
-        const response = await fetch('listings.json');
+        const response = await fetch('airbnb_sf_listings_500.json');
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
