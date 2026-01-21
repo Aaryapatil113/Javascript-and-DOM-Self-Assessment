@@ -31,5 +31,3 @@ A web app that displays 50 Airbnb listings from San Francisco using JavaScript, 
 
 Some listing images are unavailable due to outdated URLs - placeholder images are used instead.
 
-I used Claude AI to assist with styling and JavaScript implementation.
-
