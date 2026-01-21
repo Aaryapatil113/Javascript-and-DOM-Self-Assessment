@@ -45,7 +45,7 @@ airbnb-listings/
 
 1. **Clone the repository**
 ```bash
-   git clone https://github.com/YOUR-USERNAME/airbnb-listings.git
+   git clone https://github.com/aaryapatil113/airbnb-listings.git
    cd airbnb-listings
 ```
 
