@@ -31,43 +31,6 @@ A responsive web application that displays Airbnb listings using vanilla JavaScr
 - **Bootstrap 5.3.8**: Responsive grid and components
 - **Fetch API**: Asynchronous data loading
 
-## 📁 Project Structure
-```
-airbnb-listings/
-├── index.html          # Main HTML file
-├── app.js             # JavaScript logic
-├── style.css          # Custom CSS styles
-├── listings.json      # Data file (50 listings)
-└── README.md          # This file
-```
-
-## 🚀 Setup Instructions
-
-1. **Clone the repository**
-```bash
-   git clone https://github.com/aaryapatil113/airbnb-listings.git
-   cd airbnb-listings
-```
-
-2. **Add the JSON data file**
-   - Place your `listings.json` file in the root directory
-   - Make sure it contains at least 50 listings
-
-3. **Run the application**
-   - Option 1: Open `index.html` directly in your browser
-   - Option 2: Use a local server (recommended):
-```bash
-     # Using Python
-     python -m http.server 8000
-     
-     # Using Node.js
-     npx http-server
-```
-   - Navigate to `http://localhost:8000`
-
-## 🌐 Live Demo
-
-🔗 **[View Live Demo](https://YOUR-USERNAME.github.io/airbnb-listings/)**
 
 ## 💡 How It Works
 
@@ -114,15 +77,8 @@ The code expects JSON data in this format:
 ## 👨‍💻 Author
 
 **Aarya Patil**  
-Northeastern University - Khoury College of Computer Sciences  
-Web Development Course
-
-## 📜 License
-
-This project is for educational purposes as part of a web development course assignment.
 
 ## 🙏 Acknowledgments
 
 - Based on the Airbnb Listings demo from class
 - Bootstrap for responsive components
-- Professor John Guerra for the starter code and dataset
